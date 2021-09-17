@@ -1,0 +1,376 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+    
+@font-face
+    font-family: 'Px Grotesk Screen'
+    src: url('../fonts/PxGrotesk-Screen.woff2') format('woff2'), url('../fonts/PxGrotesk-Screen.woff') format('woff')
+    font-weight: 900
+    font-style: normal
+    font-display: swap
+
+@font-face
+    font-family: 'TT Squares Condensed'
+    src: url('../fonts/TTSquaresCondensed-Regular.woff2') format('woff2'), url('../fonts/TTSquaresCondensed-Regular.woff') format('woff')
+    font-weight: normal
+    font-style: normal
+    font-display: swap
+*
+    box-sizing: border-box
+    
+html, body
+    margin: 0
+
+button, .button
+    padding: 12px 25px
+    border: 1px solid #000
+    border-radius: 20px
+    color: #fff
+    background: #000
+    display: inline-block
+    text-decoration: none
+    line-height: 14px
+    &--border
+        background: transparent
+        color: #000
+    &--like
+        border-color: transparent
+        background-color: rgba(0,0,0,.19)
+        display: flex
+        align-items: center
+        justify-content: center
+        height: 30px
+        color: #000
+        padding: 8px 10px
+        &:before
+            content: ''
+            width: 14px
+            height: 13px
+            background-repeat: no-repeat
+            background-position: center
+            background-image: url('../src/like.svg')
+            opacity: .4
+            margin-right: 6px
+    &--more
+        border-color: rgba(0,0,0,.1)
+        background-color: transparent
+        display: flex
+        align-items: center
+        justify-content: center
+        height: 30px
+        color: #000
+        padding: 8px 10px
+        font-size: 10px
+        &:after
+            content: ''
+            width: 14px
+            height: 13px
+            background-repeat: no-repeat
+            background-position: center
+            background-image: url('../src/chevrone-right.svg')
+            margin-left: 10px
+    &--bid
+        width: 100%
+        padding: 14px 25px
+        display: flex
+        align-items: center
+        justify-content: center
+        font-family: 'Px Grotesk Screen', sans-serif
+.button-group
+    &__list
+        display: flex
+        margin: 0 -5px
+        padding: 0
+        list-style: none
+    &__item
+        padding: 0 5px
+
+
+.header
+    font-family: 'Inter', sans-serif
+    width: 100%
+    &__wrapper
+        display: flex
+        align-items: center
+    &__logo
+        width: 54px
+        @media (min-width: 1024px)
+            width: auto
+            position: absolute
+            left: 15px
+            right: 15px
+            top: 10px
+    &__controls
+        margin: auto
+        @media (min-width: 1024px)
+            position: absolute
+            left: 15px
+            bottom: 15px
+            font-size: 12px
+    &__actions
+        @media (min-width: 1024px)
+            position: absolute
+            right: 15px
+            bottom: 15px
+            font-size: 12px
+    &__button-wallet
+        display: none
+        @media (min-width: 1024px)
+            display: block
+    &__button-add-mask
+        @media (max-width: 1023px)
+            width: 40px
+            height: 40px
+            padding: 0
+            .caption
+                display: none
+.logo
+    width: 100%
+    picture
+        width: 100%
+        img
+            width: 100%
+
+
+.hero
+    background: #000
+    padding: 5px
+    min-height: 100vh
+    position: relative
+    display: flex
+    align-items: stretch
+    &__header
+        @media (max-width:1023px)
+            position: absolute
+            top: 0
+            left: 0
+            padding: 15px
+            width: 100%
+    &__wrapper
+        background: #D2FD7E
+        width: 100%
+        border-radius: 24px
+        display: flex
+        justify-content: center
+        align-items: center
+        padding: 75px 25px 25px
+        @media (min-width: 1024px)
+            padding: 75px 140px
+    &__controls
+        position: absolute
+        left: 15px
+        top: 50%
+        transform: translateY(-50%)
+        @media (max-width: 1023px)
+            top: calc(90px + ((100vw - 50px)*1.49))
+            transform: none
+            left: 25px
+            right: 25px
+    &__content
+        width: 100%
+
+.dots
+    @media (max-width: 1023px)
+        display: flex
+        justify-content: center        
+    &__wrapper
+        height: 310px
+        display: flex
+        flex-direction: column
+        justify-content: end
+        overflow: hidden
+        @media (max-width: 1023px)
+            height: 90px
+            width: 310px
+            flex-direction: row
+    &__list
+        display: flex
+        flex-direction: column
+        align-items: center
+        list-style: none
+        margin: -8px 0
+        padding: 0
+        @media (max-width: 1023px)
+            flex-direction: row
+    &__item
+        padding: 8px 0
+        @media (max-width: 1023px)
+            padding: 0 8px
+    &__link
+        width: 33px
+        display: block
+        &--active
+            width: 90px
+            padding: 10px
+            position: relative
+            &::before
+                content: ''
+                display: block
+                position: absolute
+                top: 0
+                left: 0
+                height: 100%
+                width: 100%
+                background: conic-gradient(#000, transparent)
+                clip-path: url(#d)
+                border-radius: 50%
+                animation: spin 1s infinite linear
+        &--big
+            width: 50px
+.avatar
+    &__wrapper
+        width: 100%
+        height: 0
+        padding-top: 100%
+        position: relative
+        clip-path: url(#mask--loader)
+    &__image
+        position: absolute
+        left: 0
+        top: 0
+        width: 100%
+        height: 100%
+        object-fit: cover
+.lot
+    font-family: 'TT Squares Condensed', sans-serif
+    &__wrapper
+        @media (min-width: 1024px)
+            display: flex
+            align-items: center
+            justify-content: center
+    &__video
+        width: 500px
+        margin-right: 80px
+        @media (max-width: 1366px)
+            max-width: 40%
+        @media (max-width: 1023px)
+            max-width: none
+            width: 100%
+            padding-bottom: 117px
+    &__video-wrapper
+        width: 100%
+        height: 0
+        padding-top: 149%
+        position: relative
+        border-radius: 24px
+        overflow: hidden
+        .video
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            object-fit: cover
+    &__description
+        max-width: 323px
+        @media (max-width: 1023px)
+            max-width: 100%
+    &__title
+        font-family: 'Px Grotesk Screen', sans-serif
+        font-size: 38px
+        line-height: 1.11
+        margin: 0
+        margin-bottom: 22px
+    &__author
+        font-size: 14px
+        line-height: 16px
+        opacity: .4
+        margin-bottom: 12px
+    &__actions
+        margin-bottom: 30px
+    &__bid
+        color: #000
+        display: flex
+        flex-wrap: wrap
+        @media (max-width: 480px)
+            justify-content: space-between
+        &-action
+            margin-bottom: 17px
+            flex: 0 0 100%
+        &-info
+            font-size: 16px
+            line-height: 19px
+            flex: 0 0 118px
+            border-right: 1px solid rgba(0,0,0,.1)
+            @media (max-width: 480px)
+                border: none
+                flex: 0 0 auto
+        &-timer
+            padding-left: 28px
+            @media (max-width: 480px)
+                padding-left: 0px
+        &-title
+            font-size: 12px
+            line-height: 14px
+            opacity: .6
+            margin-bottom: 5px
+        &-value
+            margin-bottom: 6px
+        &-fiat
+            opacity: .4
+            font-size: 10px
+            line-height: 12px
+.timer
+    flex: 1 1 0
+    &__title
+        font-size: 12px
+        line-height: 14px
+        opacity: .6
+        margin-bottom: 5px
+.clock-face
+    &__list
+        margin: 0 -16px
+        padding: 0
+        list-style: none
+        display: flex
+    &__item
+        position: relative
+        padding: 0 16px
+        &:after
+            content: ':'
+            display: block
+            position: absolute
+            right: 0
+            top: 0
+        &:last-child
+            &:after
+                display: none    
+    &__num
+        margin-bottom: 6px
+    &__label
+        opacity: .4
+        font-size: 10px
+        line-height: 12px
+.toggle
+    background: #000
+    border-radius: 20px
+    border: 2px solid #000
+    &__list
+        margin: 0
+        padding: 0
+        list-style: none
+        display: flex
+    &__item
+        margin-right: 2px
+        &:last-child
+            margin-right: 0
+    &__link
+        display: block
+        border-radius: 18px
+        padding: 11px 20px 11px
+        text-decoration: none
+        color: #fff
+        span
+            line-height: 14px
+        &--active
+            background: #D2FD7E
+            color: #000
+
+@keyframes spin
+    0%
+        transform: rotate(0deg)
+    100%
+        transform: rotate(360deg)
+
+.mask
+    position: absolute
+    width: 0
+    height: 0
